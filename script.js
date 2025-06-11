@@ -1,15 +1,24 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Animate the circle's scale as user scrolls
-gsap.to(".circle-mask", {
-  width: "3000px",
-  height: "3000px",
-  ease: "power2.inOut",
+const hero = document.querySelector(".hero-section");
+
+gsap.to(hero, {
   scrollTrigger: {
-    trigger: ".hero",
+    trigger: ".spacer",
     start: "top top",
     end: "bottom top",
-    scrub: true,
-    pin: true
-  }
+    scrub: 1,
+    markers: false,
+    onUpdate: (self) => {
+      if (self.progress === 1) {
+        hero.style.position = "relative";
+        hero.style.pointerEvents = "auto";
+      } else {
+        hero.style.position = "fixed";
+        hero.style.pointerEvents = "none";
+      }
+    }
+  },
+  clipPath: "circle(150% at center)",
+  webkitClipPath: "circle(150% at center)"
 });
