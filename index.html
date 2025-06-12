@@ -10,6 +10,7 @@
       padding: 0;
       overflow-x: hidden;
       font-family: sans-serif;
+      scroll-behavior: smooth;
     }
 
     section {
@@ -19,7 +20,7 @@
     }
 
     .hero {
-      background: url('water.jpeg');
+      background: #3498db;
       color: white;
       display: flex;
       justify-content: center;
@@ -28,7 +29,7 @@
     }
 
     .reveal {
-      background: url('ship.jpeg');
+      background: #e74c3c;
       color: white;
       display: flex;
       justify-content: center;
@@ -76,7 +77,7 @@
         trigger: ".hero",
         start: "top top",
         end: "+=200%",
-        scrub: true,
+        scrub: 3,
         pin: true
       }
     });
